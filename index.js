@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordBox = document.getElementById("password-input");
     const paswordLengthAlert = document.getElementById("password-length-alert")
     const uppercaseLetterAlert = document.getElementById("password-uppercase-alert")
+    const specialCharacterAlert = document.getElementById("password-special-character-alert")
 
 
 
@@ -9,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function handlePasswordLength() {
         const password = passwordBox.value;
-        const minimumCharactors = 8;
+        const minimumCharacters = 8;
 
-        if(password.length >= minimumCharactors){
+        if(password.length >= minimumCharacters){
             paswordLengthAlert.classList.remove("alert-danger");
             paswordLengthAlert.classList.add("alert-success");
         } else {
@@ -33,6 +34,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function handleSpecialCharacters() {
+        const password = passwordBox.value;
+        let doesContainSpecialCharacter = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(password)
+
+        if (doesContainSpecialCharacter === true) {
+            specialCharacterAlert.classList.remove("alert-danger");
+            specialCharacterAlert.classList.add("alert-success");
+        } else {
+            specialCharacterAlert.classList.remove("alert-success");
+            specialCharacterAlert.classList.add("alert-danger")
+        }
+    }
+
 
 
 
@@ -42,4 +56,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     passwordBox.addEventListener("input", handlePasswordLength)
     passwordBox.addEventListener("input", handleUppercase)
+    passwordBox.addEventListener("input", handleSpecialCharacters)
 })
