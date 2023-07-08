@@ -11,23 +11,29 @@
 <body>
 <input id="password-input" class="form-control form-control-lg" type="text" placeholder="Password" style="width: 80%;">
 
-<div id="password-length-alert" class="alert alert-danger" role="alert">
-    Password must be at least 8 characters long
+<div id="alertContainer">
+    <div id="password-space-alert" class="alert alert-danger" role="alert">
+        Password must not contain any spaces
+    </div>
+
+    <div id="password-length-alert" class="alert alert-danger" role="alert">
+        Password must be at least 8 characters long
+    </div>
+
+    <div id="password-uppercase-alert" class="alert alert-danger" role="alert">
+        Password must be at least 1 Uppercase letter
+    </div>
+
+    <div id="password-special-character-alert" class="alert alert-danger" role="alert">
+        Password must contain at least 1 special character
+    </div>
+
 </div>
 
-<div id="password-uppercase-alert" class="alert alert-danger" role="alert">
-    Password must be at least 1 Uppercase letter
-</div>
-
-<div id="password-special-character-alert" class="alert alert-danger" role="alert">
-    Password must contain at least 1 special character
-</div>
-
-<div id="password-space-alert" class="alert alert-danger" role="alert">
-    Password must not contain any spaces
-</div>
 
 
-<script src="index.js"></script>
+
+<script src="js/mainAlerts.js"></script>
+<script src="js/addTo25.js"></script>
 </body>
 </html>
