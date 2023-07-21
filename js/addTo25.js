@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordBox = document.getElementById("password-input");
 
     function createNewAlert() {
-        if (handleSpaces() === true && handlePasswordLength() === true && handleUppercase() === true && handleSpecialCharacters() === true) {
+        if (handleSpaces() === true && handlePasswordLength() === true && handleUppercase() === true && handleSpecialCharacters() === true && handleNumber() === true) {
 
             const successAlert = createAlert("All Numbers within your password must add up to 25", "alert-danger");
             insertAlertBefore(successAlert, alertContainer.firstChild);

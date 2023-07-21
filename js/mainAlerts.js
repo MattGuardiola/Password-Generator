@@ -3,25 +3,13 @@
     const paswordLengthAlert = document.getElementById("password-length-alert")
     const uppercaseLetterAlert = document.getElementById("password-uppercase-alert")
     const specialCharacterAlert = document.getElementById("password-special-character-alert")
+    const numberAlert = document.getElementById("password-number-alert")
 
 
 
 
 
-    function handleSpaces() {
-        const password = passwordBox.value;
-        let doesContainSpaces = /[" "]/.test(password)
 
-        if (doesContainSpaces !== true) {
-            spaceAlert.classList.remove("alert-danger");
-            spaceAlert.classList.add("alert-success");
-            return true;
-        } else {
-            spaceAlert.classList.remove("alert-success");
-            spaceAlert.classList.add("alert-danger")
-            return false;
-        }
-    }
 
 
     function handlePasswordLength() {
@@ -70,8 +58,38 @@
     }
 
 
+    function handleNumber() {
+        const password = passwordBox.value;
+        let doesContainNumbers = /\d/.test(password)
+
+        if (doesContainNumbers !== true) {
+            numberAlert.classList.remove("alert-success");
+            numberAlert.classList.add("alert-danger");
+            return false;
+        } else {
+            numberAlert.classList.remove("alert-danger");
+            numberAlert.classList.add("alert-success")
+            return true;
+        }
+
+    }
 
 
+
+    function handleSpaces() {
+        const password = passwordBox.value;
+        let doesContainSpaces = /[" "]/.test(password)
+
+        if (doesContainSpaces !== true) {
+            spaceAlert.classList.remove("alert-danger");
+            spaceAlert.classList.add("alert-success");
+            return true;
+        } else {
+            spaceAlert.classList.remove("alert-success");
+            spaceAlert.classList.add("alert-danger")
+            return false;
+        }
+    }
 
 
 
@@ -82,9 +100,11 @@
 
     document.addEventListener("DOMContentLoaded", function () {
 
-    passwordBox.addEventListener("input", handleSpaces)
+
     passwordBox.addEventListener("input", handlePasswordLength)
     passwordBox.addEventListener("input", handleUppercase)
     passwordBox.addEventListener("input", handleSpecialCharacters)
+    passwordBox.addEventListener("input", handleNumber)
+    passwordBox.addEventListener("input", handleSpaces)
 
 })
