@@ -92,29 +92,6 @@
     }
 
 
-    function handleAddTo25(){
-        const password = passwordBox.value
-        const testNumbers = /\d/g;
-        const digitsArray = password.match(testNumbers).map(Number);
-
-        let sum = 0;
-
-        for(let i = 0; i < digitsArray.length; i++) {
-            sum += digitsArray[i]
-        }
-        console.log(addTo25Alert)
-
-        if(sum === 25) {
-            addTo25Alert.classList.remove("alert-danger");
-            addTo25Alert.classList.add("alert-success");
-            return true;
-        } else {
-            addTo25Alert.classList.remove("alert-success");
-            addTo25Alert.classList.add("alert-danger")
-            return false;
-        }
-    }
-
 
 
 
@@ -129,6 +106,5 @@
     passwordBox.addEventListener("input", handleSpecialCharacters)
     passwordBox.addEventListener("input", handleNumber)
     passwordBox.addEventListener("input", handleSpaces)
-        passwordBox.addEventListener("input", handleAddTo25)
 
 })
