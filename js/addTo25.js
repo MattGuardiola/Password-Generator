@@ -82,3 +82,4 @@ document.addEventListener("DOMContentLoaded", function () {
     passwordBox.addEventListener("input", createNewAlert)
     passwordBox.addEventListener("input", handleAddTo25)
 })
+
