@@ -12,16 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
     function createNewAlert() {
         if (alertCreated === false) {
             if (handleSpaces() === true && handlePasswordLength() === true && handleUppercase() === true && handleSpecialCharacters() === true && handleNumber() === true) {
-
                 const successAlert = createAlert("All Numbers within your password must add up to 25", "alert-danger");
                 insertAlertBefore(successAlert, alertContainer.firstChild);
                 alertCreated = true
-            }
-        } else {
+            } else {
                 removeAlert()
             }
-
-
+        }
     }
 
     function createAlert(message, className) {
