@@ -10,16 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function createNewAlert() {
-        if (alertCreated === false) {
-            if (handleSpaces() === true && handlePasswordLength() === true && handleUppercase() === true && handleSpecialCharacters() === true && handleNumber() === true) {
+            if (!alertCreated && handleSpaces() && handlePasswordLength() && handleUppercase() && handleSpecialCharacters() && handleNumber()) {
                 const successAlert = createAlert("All Numbers within your password must add up to 25", "alert-danger");
                 insertAlertBefore(successAlert, alertContainer.firstChild);
                 alertCreated = true
-            } else {
-                removeAlert()
+                addTo25Alert = successAlert;
             }
         }
-    }
+
 
     function createAlert(message, className) {
         const alert = document.createElement("div");
@@ -32,22 +30,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function insertAlertBefore(newAlert, existingAlert) {
-
         if (!hasExicuted) {
-            const parent = alertContainer;
-            parent.insertBefore(newAlert, existingAlert);
+            alertContainer.insertBefore(newAlert, existingAlert);
         }
         hasExicuted = true
     }
 
     function removeAlert() {
-        console.log("attempting to remove")
-        const alertToRemove = document.getElementById("addTo25")
-        if (alertToRemove) {
-            alertToRemove.remove();
-            alertCreated = false
+        if (addTo25Alert) {
+            addTo25Alert.remove();
+            alertCreated = false;
+            hasExicuted = false;
         }
-        hasExicuted = false
     }
 
 
@@ -61,9 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
         for(let i = 0; i < digitsArray.length; i++) {
             sum += digitsArray[i]
         }
-        console.log(addTo25Alert)
 
-        if(sum === 25) {
+        if(sum === 25 ) {
             addTo25Alert.classList.remove("alert-danger");
             addTo25Alert.classList.add("alert-success");
             return true;
@@ -75,9 +68,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    function deleteAlert() {
+        if (!handleSpaces() || !handlePasswordLength() || !handleUppercase() || !handleSpecialCharacters() || !handleNumber()) {
+            removeAlert();
+            alertCreated = false;
+        }
+    }
+
 
     passwordBox.addEventListener("input", createNewAlert)
     passwordBox.addEventListener("input", handleAddTo25)
+    passwordBox.addEventListener("input", deleteAlert)
 })
 
 
