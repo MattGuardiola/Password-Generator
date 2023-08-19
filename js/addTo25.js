@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
 
     let alertCreated = false
@@ -10,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function createNewAlert() {
-            if (!alertCreated && handleSpaces() && handlePasswordLength() && handleUppercase() && handleSpecialCharacters() && handleNumber()) {
+            if (!alertCreated && allMainFunctions()) {
                 const successAlert = createAlert("All Numbers within your password must add up to 25", "alert-danger");
                 insertAlertBefore(successAlert, alertContainer.firstChild);
                 alertCreated = true
@@ -69,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function deleteAlert() {
-        if (!handleSpaces() || !handlePasswordLength() || !handleUppercase() || !handleSpecialCharacters() || !handleNumber()) {
+        if (!allMainFunctions()) {
             removeAlert();
             alertCreated = false;
         }

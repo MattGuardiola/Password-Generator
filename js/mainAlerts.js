@@ -4,12 +4,6 @@
     const uppercaseLetterAlert = document.getElementById("password-uppercase-alert")
     const specialCharacterAlert = document.getElementById("password-special-character-alert")
     const numberAlert = document.getElementById("password-number-alert")
-    const addTo25Alert = document.getElementById("addTo25")
-
-
-
-
-
 
 
     function handlePasswordLength() {
@@ -92,10 +86,9 @@
     }
 
 
-
-
-
-
+    function allMainFunctions () {
+        return handleSpaces() && handlePasswordLength() && handleUppercase() && handleSpecialCharacters() && handleNumber();
+    }
 
 
     document.addEventListener("DOMContentLoaded", function () {
