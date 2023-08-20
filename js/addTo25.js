@@ -2,17 +2,17 @@ let addTo25Alert;
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    let alertCreated = false
+    let addTo25AlertCreated = false
     let addTo25HasExicuted = false;
     const alertContainer = document.getElementById("alertContainer");
     const passwordBox = document.getElementById("password-input");
 
 
     function createAddTo25Alert() {
-        if (!alertCreated && allMainFunctions()) {
+        if (!addTo25AlertCreated && allMainFunctions()) {
             const successAlert = createAlert("All Numbers within your password must add up to 25", "alert-danger", "addTo25");
             insertAlertBefore(successAlert, alertContainer.firstChild);
-            alertCreated = true
+            addTo25AlertCreated = true
             addTo25Alert = successAlert;
         }
     }
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function removeAlert(deletedAlert) {
         if (deletedAlert) {
             deletedAlert.remove();
-            alertCreated = false;
+            addTo25AlertCreated = false;
             addTo25HasExicuted = false;
         }
     }
@@ -37,9 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function deleteAlert() {
         if (!allMainFunctions()) {
             removeAlert(addTo25Alert);
-            alertCreated = false;
+            addTo25AlertCreated = false;
         }
     }
+
+
+
 
 
     passwordBox.addEventListener("input", createAddTo25Alert)
@@ -49,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function handleAddTo25() {
+    let alertAddTo25Success
     const password = passwordBox.value
     const testNumbers = /\d/g;
     const digitsArray = password.match(testNumbers).map(Number);
@@ -60,12 +64,10 @@ function handleAddTo25() {
     }
 
     if (sum === 25) {
-        addTo25Alert.classList.remove("alert-danger");
-        addTo25Alert.classList.add("alert-success");
-        return true;
+        alertAddTo25Success = true;
     } else {
-        addTo25Alert.classList.remove("alert-success");
-        addTo25Alert.classList.add("alert-danger")
-        return false;
+        alertAddTo25Success = false;
     }
+    classChange(alertAddTo25Success, addTo25Alert)
+    return alertAddTo25Success
 }
