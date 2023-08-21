@@ -25,25 +25,16 @@ document.addEventListener("DOMContentLoaded", function () {
         addTo25HasExicuted = true
     }
 
-    function removeAlert(deletedAlert) {
-        if (deletedAlert) {
-            deletedAlert.remove();
-            addTo25AlertCreated = false;
-            addTo25HasExicuted = false;
-        }
-    }
-
 
     function deleteAlert() {
         if (!allMainFunctions()) {
-            removeAlert(addTo25Alert);
+            let alertStatus = {alertCreated: addTo25AlertCreated, alertExicuted: addTo25HasExicuted}
+            removeAlert(addTo25Alert, addTo25AlertCreated, addTo25HasExicuted);
             addTo25AlertCreated = false;
+            addTo25AlertCreated = alertStatus.alertCreated
+            addTo25HasExicuted = alertStatus.alertExicuted
         }
     }
-
-
-
-
 
     passwordBox.addEventListener("input", createAddTo25Alert)
     passwordBox.addEventListener("input", handleAddTo25)

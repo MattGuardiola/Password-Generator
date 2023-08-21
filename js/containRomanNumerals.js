@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", function (){
     let alertCreated = false
     let hasExicuted = false;
     const alertContainer = document.getElementById("alertContainer");
-    const passwordBox = document.getElementById("password-input");
-
 
     function createNewRomanNumeralsAlert() {
         if (!alertCreated && allMainFunctions() && handleAddTo25()) {

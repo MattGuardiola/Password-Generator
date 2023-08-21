@@ -21,3 +21,15 @@ function classChange (testCase, specificAlert) {
         return false;
     }
 }
+
+
+
+
+
+function removeAlert(deletedAlert, alertObject) {
+    if (deletedAlert) {
+        deletedAlert.remove();
+        alertObject.alertCreated = false;
+        alertObject.alertExicuted = false;
+    }
+}
