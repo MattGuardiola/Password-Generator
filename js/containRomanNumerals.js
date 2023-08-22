@@ -3,30 +3,43 @@ let containsRomanNumeralsAlert;
 
 document.addEventListener("DOMContentLoaded", function (){
 
-    let alertCreated = false
-    let hasExicuted = false;
+    let containsRomanNumeralsAlertCreated = false
+    let containsRomanNumeralsHasExicuted = false;
     const alertContainer = document.getElementById("alertContainer");
 
     function createNewRomanNumeralsAlert() {
-        if (!alertCreated && allMainFunctions() && handleAddTo25()) {
+        if (!containsRomanNumeralsAlertCreated && allMainFunctions() && handleAddTo25()) {
             const successAlert = createAlert("Your Password must contain at least 3 roman numerals", "alert-danger", "containRomanNumerals");
             insertAlertBefore(successAlert, alertContainer.firstChild);
-            alertCreated = true
+            containsRomanNumeralsAlertCreated = true
             containsRomanNumeralsAlert = successAlert;
         }
     }
 
     function insertAlertBefore(newAlert, existingAlert) {
-        if (!hasExicuted) {
+        if (!containsRomanNumeralsHasExicuted) {
             alertContainer.insertBefore(newAlert, existingAlert);
         }
-        hasExicuted = true
+        containsRomanNumeralsHasExicuted = true
     }
+
+
+    function deleteAlert() {
+        if (!allMainFunctions() || !handleAddTo25()) {
+            let alertStatus = {alertCreated: containsRomanNumeralsAlertCreated, alertExicuted: containsRomanNumeralsHasExicuted}
+            removeAlert(containsRomanNumeralsAlert, alertStatus);
+            containsRomanNumeralsAlertCreated = alertStatus.alertCreated
+            containsRomanNumeralsHasExicuted = alertStatus.alertExicuted
+        }
+    }
+
+
 
 
 
     document.addEventListener("input", createNewRomanNumeralsAlert)
     document.addEventListener("input", handleContainsRomanNumerals)
+    passwordBox.addEventListener("input", deleteAlert)
 })
 
 

@@ -29,8 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function deleteAlert() {
         if (!allMainFunctions()) {
             let alertStatus = {alertCreated: addTo25AlertCreated, alertExicuted: addTo25HasExicuted}
-            removeAlert(addTo25Alert, addTo25AlertCreated, addTo25HasExicuted);
-            addTo25AlertCreated = false;
+            removeAlert(addTo25Alert, alertStatus);
             addTo25AlertCreated = alertStatus.alertCreated
             addTo25HasExicuted = alertStatus.alertExicuted
         }
