@@ -66,3 +66,4 @@ function handleContainsRomanNumerals () {
     classChange(containsRomanNumeralsSuccess, containsRomanNumeralsAlert)
     return containsRomanNumeralsSuccess
 }
+
