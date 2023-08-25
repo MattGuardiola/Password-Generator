@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function (){
     let multiplyTo35HasExecuted = false;
     const alertContainer = document.getElementById("alertContainer");
 
-    function createMultiplyTo35Alert() {
+    function createMultiplyTo1250Alert() {
         if (!multiplyTo35AlertCreated && allMainFunctions() && handleAddTo25() && handleContainsRomanNumerals()) {
             const successAlert = createAlert("The roman numerals in your password must multiply to equal at least 1250", "alert-danger", "multiplyTo35");
             insertAlertBefore(successAlert, alertContainer.firstChild);
@@ -33,21 +33,20 @@ document.addEventListener("DOMContentLoaded", function (){
     }
 
 
-    document.addEventListener("input", createMultiplyTo35Alert)
+    document.addEventListener("input", createMultiplyTo1250Alert)
     document.addEventListener("input", deleteMultiplyTo35Alert)
-    document.addEventListener("input",handleMultiplyTo35)
+    document.addEventListener("input",handleMultiplyTo1250)
 
 })
 
 
-    function handleMultiplyTo35(){
+    function handleMultiplyTo1250(){
         let multiplyTo35Success
         let multiplesArray = []
         let i = 0;
         let x = 0;
         let result = 1;
 
-        console.log(romanNumeralsArray)
         while (i < romanNumeralsArray.length) {
             if (romanNumeralsArray[i].includes("I")){
                 multiplesArray.push(1)
@@ -58,13 +57,11 @@ document.addEventListener("DOMContentLoaded", function (){
             }
             i++
         }
-        console.log(multiplesArray)
 
         while (x < multiplesArray.length){
             result *= multiplesArray[x]
             x++
         }
-        console.log(result)
 
         if(result > 1250){
             multiplyTo35Success = true
