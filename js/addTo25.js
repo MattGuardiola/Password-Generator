@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    function deleteAlert() {
+    function deleteAddTo25Alert() {
         if (!allMainFunctions()) {
             let alertStatus = {alertCreated: addTo25AlertCreated, alertExicuted: addTo25HasExicuted}
             removeAlert(addTo25Alert, alertStatus);
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     passwordBox.addEventListener("input", createAddTo25Alert)
     passwordBox.addEventListener("input", handleAddTo25)
-    passwordBox.addEventListener("input", deleteAlert)
+    passwordBox.addEventListener("input", deleteAddTo25Alert)
 })
 
 

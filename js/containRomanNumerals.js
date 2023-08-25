@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function (){
     }
 
 
-    function deleteAlert() {
+    function deleteContainsRomanNumeralsAlert() {
         if (!allMainFunctions() || !handleAddTo25()) {
             let alertStatus = {alertCreated: containsRomanNumeralsAlertCreated, alertExicuted: containsRomanNumeralsHasExicuted}
             removeAlert(containsRomanNumeralsAlert, alertStatus);
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function (){
 
     document.addEventListener("input", createNewRomanNumeralsAlert)
     document.addEventListener("input", handleContainsRomanNumerals)
-    passwordBox.addEventListener("input", deleteAlert)
+    passwordBox.addEventListener("input", deleteContainsRomanNumeralsAlert)
 })
 
 
@@ -57,7 +57,7 @@ function handleContainsRomanNumerals () {
         }
     }
 
-    if (romanNumeralsArray.length === 3) {
+    if (romanNumeralsArray.length >= 3) {
         containsRomanNumeralsSuccess = true
     } else {
         containsRomanNumeralsSuccess = false
