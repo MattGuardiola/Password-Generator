@@ -1,3 +1,4 @@
+
 function createAlert(message, className, id) {
     const alert = document.createElement("div");
     alert.classList.add("alert", className);
@@ -6,7 +7,13 @@ function createAlert(message, className, id) {
     return alert;
 }
 
-
+function createComplexAlert(content, className, id) {
+    const alert = document.createElement("div");
+    alert.classList.add("alert", className);
+    alert.appendChild(content)
+    alert.id = id;
+    return alert;
+}
 
 
 
