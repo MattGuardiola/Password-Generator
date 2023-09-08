@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function(){
     const alertContainer = document.getElementById("alertContainer");
 
     function createBeatSimonAlert() {
-        //There has to be a better way to do this
         const alertHTML = `
         <div class="container">
             <div class="row">
