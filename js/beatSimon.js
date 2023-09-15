@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function createBeatSimonAlert() {
         const alertHTML = `
-        <div class="container">
+        <div> Your password must include the amount of turns it takes you to beat Simon</div>
+        <div class="container" style="margin-left: 15%">
             <div class="row">
                 <div id="green" class="btn green" style="margin: 5px; height: 80px; width: 80px; border: 3px solid black; border-radius: 20%; background-color: green;"></div>
                 <div id="red" class="btn red" style="margin: 5px; height: 80px; width: 80px; border: 3px solid black; border-radius: 20%; background-color: red;"></div>
@@ -16,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function(){
                 <div id="yellow" class="btn yellow" style="margin: 5px; height: 80px; width: 80px; border: 3px solid black; border-radius: 20%; background-color: yellow;"></div>
                 <div id="blue" class="btn blue" style="margin: 5px; height: 80px; width: 80px; border: 3px solid black; border-radius: 20%; background-color: blue;"></div>
             </div>
-        </div>`;
+        </div>
+        <button id="start-game">Start</button>`;
         const successAlertFragment = document.createRange().createContextualFragment(alertHTML);
         if (!beatSimonAlertCreated && allMainFunctions()) {
             const successAlert = createComplexAlert(successAlertFragment, "alert-danger", "beatSimon");
@@ -32,6 +34,15 @@ document.addEventListener("DOMContentLoaded", function(){
         }
         beatSimonHasExicuted = true
     }
+
+
+
+
+
+
+
+
+
 
 
 
