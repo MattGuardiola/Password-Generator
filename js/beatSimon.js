@@ -46,5 +46,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
+
+
     document.addEventListener("input",createBeatSimonAlert)
 })
