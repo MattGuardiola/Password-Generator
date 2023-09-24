@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
     function createBeatSimonAlert() {
         const alertHTML = `
         <div> Your password must include the amount of turns it takes you to beat Simon</div>
+    
         <div class="container" style="margin-left: 15%">
             <div class="row">
                 <div id="green" class="btn green" style="margin: 5px; height: 80px; width: 80px; border: 3px solid black; border-radius: 20%; background-color: green;"></div>
@@ -18,7 +19,8 @@ document.addEventListener("DOMContentLoaded", function(){
                 <div id="blue" class="btn blue" style="margin: 5px; height: 80px; width: 80px; border: 3px solid black; border-radius: 20%; background-color: blue;"></div>
             </div>
         </div>
-        <button id="start-game">Start</button>`;
+        
+        <button id="start-game">Start Game</button>`;
         const successAlertFragment = document.createRange().createContextualFragment(alertHTML);
         if (!beatSimonAlertCreated && allMainFunctions()) {
             const successAlert = createComplexAlert(successAlertFragment, "alert-danger", "beatSimon");
@@ -34,6 +36,13 @@ document.addEventListener("DOMContentLoaded", function(){
         }
         beatSimonHasExicuted = true
     }
+
+    // //after player hits play
+    // other functions will be called
+    // and game will start
+    // a randum number of turns will be bicked each time
+    // the player will them input that amount of turns into the password
+    // this mayy affect the "add to 25" rule and the p[layer will have to change]
 
 
 
