@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", function(){
     // //after player hits play
     // other functions will be called
     // and game will start
-    // a randum number of turns will be bicked each time
+    // a random number of turns will be picked each time
     // the player will them input that amount of turns into the password
-    // this mayy affect the "add to 25" rule and the p[layer will have to change]
+    // this may affect the "add to 25" rule and the p[layer will have to change]
 
 
 
